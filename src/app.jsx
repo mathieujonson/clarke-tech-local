@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
 import Header from './components/header';
-
-const store = configureStore();
 
 export default class App extends Component {
   render() {
@@ -14,11 +10,3 @@ export default class App extends Component {
     </div>);
   }
 }
-
-
-render(
-  <Provider store={store}>
-      <App />
-  </Provider>,
-  document.getElementById('app')
-);

@@ -10,15 +10,21 @@
 <script type="text/jsx">
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import configureStore from './store/configureStore'
 import { AppContainer } from 'react-hot-loader'
+
+const store = configureStore()
 
 const render = () => {
   const App = require('./app').default
   ReactDOM.render(
     <AppContainer>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </AppContainer>,
-    document.getElementById('App')
+    document.getElementById('app')
   )
 }
 
