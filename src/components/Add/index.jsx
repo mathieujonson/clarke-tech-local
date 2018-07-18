@@ -4,9 +4,14 @@ export default class Add extends Component {
   render() {
     return (
       <div className="add-container">
-        Add stuffs here
+        <label>Name:</label>
+        <input type="text" placeholder="Dashboard Client"/>
+        <label>Command:</label>
+        <input type="text" placeholder="npm start"/>
+        <label>Directory:</label>
+        <input type="text" placeholder="~/development/thelios-data/dashboard/client"/>
         <button>
-          Add a process <i className="material-icons">add</i>
+          Add Process
         </button>
       </div>
     )

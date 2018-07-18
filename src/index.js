@@ -15,7 +15,7 @@ if (isDevMode) enableLiveReload({ strategy: 'react-hmr' })
 const createWindow = async () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 500,
+    width: 400,
     height: 600
   })
 
