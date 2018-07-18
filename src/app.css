@@ -65,9 +65,9 @@ header {
   flex: 1;
 }
 
-footer {
-  border-top: 1px solid #dedede;
-  padding: 0.5em 1em;
+.add-container {
+  padding: 1em;
+  flex: 1;
 }
 
 button {
@@ -82,4 +82,28 @@ button {
 
 button i {
   margin-left: 5px;
+}
+
+footer {
+  border-top: 1px solid #dedede;
+  padding: 0 1em;
+  display: flex;
+}
+
+footer a {
+  width: 50%;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.5em;
+  color: #000;
+}
+
+footer a:first-child {
+  border-right: 1px solid #dedede;
+}
+
+footer .material-icons {
+  display: block;
+  font-size: 2em;
 }
