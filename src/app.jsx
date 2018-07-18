@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import Header from './components/header'
+import Header from './components/Header'
+import List from './components/List'
+import Footer from './components/Footer'
 
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="content-container">
         <Header />
-        <p>Now we're cooking!!!</p>
+        <List />
+        <Footer />
       </div>
     )
   }
