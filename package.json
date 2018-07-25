@@ -2,7 +2,7 @@
   "name": "clarke-tech-local",
   "productName": "clarke-tech-local",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Electron app that handles starting all the local dev environments for Clarke Teche",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",

@@ -89,7 +89,7 @@ input {
 }
 
 button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.5em;
@@ -100,6 +100,13 @@ button {
 
 button i {
   margin-left: 5px;
+}
+
+.error {
+  color: #a94442;
+  padding:0 .5em;
+  position:relative;
+  top:3px;
 }
 
 footer {

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import environments from './environments.reducer'
+import processes from './processes.reducer'
 
 const rootReducer = combineReducers({
-  environments
+  processes
 })
 
 export default rootReducer
