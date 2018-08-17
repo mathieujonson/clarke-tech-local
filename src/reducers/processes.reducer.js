@@ -7,8 +7,12 @@ export default function processes(
 ) {
   switch (action.type) {
     case SAVE_PROCESS:
-      console.log('in the reducer')
-      return action.payload
+      return [ ...previousState,
+        {
+          name: action.payload.name,
+          command: action.payload.command,
+          directory: action.payload.directory
+        } ]
     default:
       return previousState
   }
