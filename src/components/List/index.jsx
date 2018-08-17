@@ -5,16 +5,19 @@ import * as actions from '../../actions/process.actions.js'
 
 export class List extends Component {
   componentWillMount() {
-    this.props.loadProcesses();
+    this.props.loadProcesses()
+  }
+
+  renderProcesses() {
+    return this.props.processes.map(process => {
+      return <li className="process-card">{ process.name }</li>
+    })
   }
 
   render() {
     return (
       <ul className="process-list">
-        <li>Here</li>
-        <li>is</li>
-        <li>the</li>
-        <li>list</li>
+        {this.renderProcesses()}
       </ul>
     )
   }

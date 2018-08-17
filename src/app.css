@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -40,7 +42,7 @@
 }
 
 body {
-  margin:0;
+  margin: 0;
   font-family: 'system';
   font-size: 16px;
   overflow-y: scroll;
@@ -67,6 +69,14 @@ header {
   margin: 0;
   list-style-type: none;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.process-card {
+  padding: 1em;
+  border: 1px solid #dedede;
+  margin-bottom: 0.5em;
 }
 
 .add-container {
@@ -74,18 +84,19 @@ header {
   flex: 1;
 }
 
-label, input {
-  display:block;
-  width:100%;
+label,
+input {
+  display: block;
+  width: 100%;
 }
 
 label {
-  margin-bottom:.25em;
+  margin-bottom: 0.25em;
 }
 
 input {
-  margin-bottom:.75em;
-  padding: .25em;
+  margin-bottom: 0.75em;
+  padding: 0.25em;
 }
 
 button {
@@ -104,9 +115,9 @@ button i {
 
 .error {
   color: #a94442;
-  padding:0 .5em;
-  position:relative;
-  top:3px;
+  padding: 0 0.5em;
+  position: relative;
+  top: 3px;
 }
 
 footer {
