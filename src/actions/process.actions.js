@@ -8,5 +8,22 @@ export function saveProcess(json) {
     command: json.command,
     directory: json.directory
   })
-  return { type: types.SAVE_PROCESS, payload: json }
+  return { type: types.PROCESSES_SAVE, payload: json }
+}
+
+export function loadProcesses() {
+  let processes = store.get('processes')
+
+  let processedProcesses = []
+  for(var process in processes) {
+    if(processes.hasOwnProperty(process)) {
+      processedProcesses.push({
+        name: process,
+        command: processes[process].command,
+        directory: processes[process].directory,
+      })
+    }
+  }
+
+  return { type: types.PROCESSES_GET, payload: processedProcesses }
 }

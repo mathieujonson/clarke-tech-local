@@ -1,1 +1,2 @@
-export const SAVE_PROCESS = 'SAVE/PROCESS'
+export const PROCESSES_SAVE = 'PROCESS/SAVE'
+export const PROCESSES_GET = 'PROCESS/GET'
