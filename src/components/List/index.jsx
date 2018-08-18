@@ -10,7 +10,6 @@ export class List extends Component {
   }
 
   renderCards() {
-    console.log("renderCards")
     if(this.props.processes.length) {
       return this.props.processes.map((process, index) => {
         return <Card process={process} key={`${process.name}-${index}`} />
