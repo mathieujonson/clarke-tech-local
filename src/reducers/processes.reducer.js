@@ -1,5 +1,9 @@
 import initialState from './initialState'
-import { PROCESSES_SAVE, PROCESSES_GET } from '../actions/actionTypes'
+import {
+  PROCESSES_SAVE,
+  PROCESSES_GET,
+  PROCESSES_REMOVE
+} from '../actions/actionTypes'
 
 export default function processes(
   previousState = initialState.processes,
@@ -17,6 +21,8 @@ export default function processes(
       ]
     case PROCESSES_GET:
       return action.payload
+    case PROCESSES_REMOVE:
+      return previousState.filter(process => process.name !== action.payload)
     default:
       return previousState
   }

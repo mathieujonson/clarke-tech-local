@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import * as actions from '../../actions/process.actions.js'
 
-export default class Card extends Component {
+export class Card extends Component {
   componentWillMount() {
     this.setState({ showDetails: false })
     this.toggleOpen = this.toggleOpen.bind(this)
+    this.removeProcess = this.removeProcess.bind(this)
   }
 
   toggleOpen() {
     this.setState({ showDetails: !this.state.showDetails })
+  }
+
+  removeProcess() {
+    this.props.removeProcess(this.props.process.name)
   }
 
   render() {
@@ -20,6 +26,9 @@ export default class Card extends Component {
           {this.props.process.name}
         </div>
         <div className="action-container">
+          <i className="material-icons" onClick={this.removeProcess}>
+            delete_outline
+          </i>
           <i className="material-icons" onClick={this.toggleOpen}>
             {this.state.showDetails
               ? 'keyboard_arrow_up'
@@ -44,3 +53,17 @@ export default class Card extends Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      removeProcess: actions.removeProcess
+    },
+    dispatch
+  )
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Card)

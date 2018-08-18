@@ -11,6 +11,11 @@ export function saveProcess(json) {
   return { type: types.PROCESSES_SAVE, payload: json }
 }
 
+export function removeProcess(name) {
+  store.delete(`processes.${name}`)
+  return { type: types.PROCESSES_REMOVE, payload: name }
+}
+
 export function loadProcesses() {
   let processes = store.get('processes')
 

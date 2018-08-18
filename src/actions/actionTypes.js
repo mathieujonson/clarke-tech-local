@@ -1,2 +1,3 @@
 export const PROCESSES_SAVE = 'PROCESS/SAVE'
 export const PROCESSES_GET = 'PROCESS/GET'
+export const PROCESSES_REMOVE = 'PROCESS/REMOVE'

@@ -84,6 +84,8 @@ header {
 
 .process-card .material-icons {
   cursor: pointer;
+  width: 1em;
+  margin-left: 0.25em;
 }
 
 .action-container {
@@ -92,18 +94,17 @@ header {
 }
 
 .details-container {
-  padding: 0.5em 0;
   width: 100%;
   display: none;
 }
 
 .details-container.open {
-  display: flex;
-  justify-content: space-between;
+  display: block;
+  margin-top: 0.5em;
 }
 
-.details-container div {
-  width: 50%;
+.details-container > div {
+  margin-bottom: 0.5em;
 }
 
 .detail-label {

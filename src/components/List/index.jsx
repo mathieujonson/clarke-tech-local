@@ -9,12 +9,22 @@ export class List extends Component {
     this.props.loadProcesses()
   }
 
+  renderCards() {
+    console.log("renderCards")
+    if(this.props.processes.length) {
+      return this.props.processes.map((process, index) => {
+        return <Card process={process} key={`${process.name}-${index}`} />
+      })
+    }
+    else {
+      return (<li>There are no processes to view.</li>)
+    }
+  }
+
   render() {
     return (
       <ul className="process-list">
-        {this.props.processes.map((process, index) => {
-          return <Card process={process} key={`${process.name}-${index}`} />
-        })}
+        {this.renderCards()}
       </ul>
     )
   }
