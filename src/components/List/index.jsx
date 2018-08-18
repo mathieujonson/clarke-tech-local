@@ -6,26 +6,27 @@ import * as actions from '../../actions/process.actions.js'
 
 export class List extends Component {
   componentWillMount() {
-    this.props.loadProcesses()
+    if (!this.props.processes.length) {
+      this.props.loadProcesses()
+    }
   }
 
   renderCards() {
-    if(this.props.processes.length) {
-      return this.props.processes.map((process, index) => {
+    if (this.props.processes.length) {
+      let sortedProcesses = this.props.processes
+      sortedProcesses.sort((a, b) => {
+        return a.name > b.name
+      })
+      return sortedProcesses.map((process, index) => {
         return <Card process={process} key={`${process.name}-${index}`} />
       })
-    }
-    else {
-      return (<li>There are no processes to view.</li>)
+    } else {
+      return <li>There are no processes to view.</li>
     }
   }
 
   render() {
-    return (
-      <ul className="process-list">
-        {this.renderCards()}
-      </ul>
-    )
+    return <ul className="process-list">{this.renderCards()}</ul>
   }
 }
 

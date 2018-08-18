@@ -34,7 +34,7 @@ export class Card extends Component {
         <div className="action-container">
           <label>
             <Toggle
-              defaultChecked={this.state.isRunning}
+              defaultChecked={this.props.process.isRunning}
               onChange={this.handleRunningChange}
             />
           </label>
@@ -75,6 +75,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
+      removeProcess: actions.removeProcess,
       updateRunning: actions.updateRunning
     },
     dispatch
