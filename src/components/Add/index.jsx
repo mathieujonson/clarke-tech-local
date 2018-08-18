@@ -6,7 +6,13 @@ import * as actions from '../../actions/process.actions'
 export class Add extends Component {
   constructor(props) {
     super(props)
-    this.state = { name: '', command: '', directory: '', errorMessage: '' }
+    this.state = {
+      name: '',
+      command: '',
+      directory: '',
+      errorMessage: '',
+      successMessage: ''
+    }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -23,6 +29,12 @@ export class Add extends Component {
         command: this.state.command,
         directory: this.state.directory
       })
+      this.setState({
+        name: '',
+        command: '',
+        directory: '',
+        successMessage: 'You did it, yo!'
+      })
     }
   }
 
@@ -32,6 +44,7 @@ export class Add extends Component {
     const name = target.name
 
     this.setState({ errorMessage: '' })
+    this.setState({ successMessage: '' })
     this.setState({
       [name]: value
     })
@@ -40,6 +53,12 @@ export class Add extends Component {
   renderErrorMessage() {
     return this.state.errorMessage ? (
       <span className="error">{this.state.errorMessage}</span>
+    ) : null
+  }
+
+  renderSuccessMessage() {
+    return this.state.successMessage ? (
+      <span className="success">{this.state.successMessage}</span>
     ) : null
   }
 
@@ -53,6 +72,7 @@ export class Add extends Component {
             placeholder="Dashboard Client"
             name="name"
             onChange={this.handleChange}
+            value={this.state.name}
           />
           <label>Command:</label>
           <input
@@ -60,6 +80,7 @@ export class Add extends Component {
             placeholder="npm start"
             name="command"
             onChange={this.handleChange}
+            value={this.state.command}
           />
           <label>Directory:</label>
           <input
@@ -67,9 +88,11 @@ export class Add extends Component {
             placeholder="~/development/thelios-data/dashboard/client"
             name="directory"
             onChange={this.handleChange}
+            value={this.state.directory}
           />
           <button>Add Process</button>
           {this.renderErrorMessage()}
+          {this.renderSuccessMessage()}
         </form>
       </div>
     )
