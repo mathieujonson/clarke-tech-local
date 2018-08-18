@@ -3,6 +3,14 @@ import * as types from './actionTypes'
 const Store = require('electron-store')
 const store = new Store()
 
+export function updateRunning(process) {
+  process.isRunning = !process.isRunning
+  return {
+    type: types.PROCESSES_UPDATE_RUNNING,
+    payload: process
+  }
+}
+
 export function saveProcess(json) {
   store.set(`processes.${json.name}`, {
     command: json.command,
@@ -26,6 +34,7 @@ export function loadProcesses() {
         name: process,
         command: processes[process].command,
         directory: processes[process].directory,
+        isRunning: false
       })
     }
   }

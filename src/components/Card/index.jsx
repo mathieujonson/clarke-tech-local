@@ -9,6 +9,7 @@ export class Card extends Component {
     this.setState({ showDetails: false, isRunning: false })
     this.toggleOpen = this.toggleOpen.bind(this)
     this.removeProcess = this.removeProcess.bind(this)
+    this.handleRunningChange = this.handleRunningChange.bind(this)
   }
 
   toggleOpen() {
@@ -20,7 +21,7 @@ export class Card extends Component {
   }
 
   handleRunningChange() {
-    console.log('running change')
+    this.props.updateRunning(this.props.process)
   }
 
   render() {
@@ -65,16 +66,22 @@ export class Card extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    processes: state.processes
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      removeProcess: actions.removeProcess
+      updateRunning: actions.updateRunning
     },
     dispatch
   )
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Card)
