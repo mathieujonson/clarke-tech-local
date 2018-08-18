@@ -15,7 +15,7 @@ export class List extends Component {
     if (this.props.processes.length) {
       let sortedProcesses = this.props.processes
       sortedProcesses.sort((a, b) => {
-        return a.name > b.name
+        return a.name.toLowerCase() > b.name.toLowerCase()
       })
       return sortedProcesses.map((process, index) => {
         return <Card process={process} key={`${process.name}-${index}`} />
