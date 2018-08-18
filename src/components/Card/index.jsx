@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../../actions/process.actions.js'
+import Toggle from 'react-toggle'
 
 export class Card extends Component {
   componentWillMount() {
-    this.setState({ showDetails: false })
+    this.setState({ showDetails: false, isRunning: false })
     this.toggleOpen = this.toggleOpen.bind(this)
     this.removeProcess = this.removeProcess.bind(this)
   }
@@ -18,6 +19,10 @@ export class Card extends Component {
     this.props.removeProcess(this.props.process.name)
   }
 
+  handleRunningChange() {
+    console.log('running change')
+  }
+
   render() {
     return (
       <li className="process-card">
@@ -26,6 +31,12 @@ export class Card extends Component {
           {this.props.process.name}
         </div>
         <div className="action-container">
+          <label>
+            <Toggle
+              defaultChecked={this.state.isRunning}
+              onChange={this.handleRunningChange}
+            />
+          </label>
           <i className="material-icons" onClick={this.removeProcess}>
             delete_outline
           </i>
