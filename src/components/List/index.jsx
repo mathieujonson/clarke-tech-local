@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Card from '../Card'
 import * as actions from '../../actions/process.actions.js'
 
 export class List extends Component {
@@ -8,16 +9,12 @@ export class List extends Component {
     this.props.loadProcesses()
   }
 
-  renderProcesses() {
-    return this.props.processes.map(process => {
-      return <li className="process-card">{ process.name }</li>
-    })
-  }
-
   render() {
     return (
       <ul className="process-list">
-        {this.renderProcesses()}
+        {this.props.processes.map((process, index) => {
+          return <Card process={process} key={`${process.name}-${index}`} />
+        })}
       </ul>
     )
   }

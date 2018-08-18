@@ -77,6 +77,32 @@ header {
   padding: 1em;
   border: 1px solid #dedede;
   margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.process-card .material-icons {
+  cursor: pointer;
+}
+
+.details-container {
+  padding: 0.5em 0;
+  width: 100%;
+  display: none;
+}
+
+.details-container.open {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-container div {
+  width: 50%;
+}
+
+.detail-label {
+  font-size: 0.75em;
 }
 
 .add-container {
